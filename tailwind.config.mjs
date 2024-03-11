@@ -28,6 +28,8 @@ export default {
         '.text-wrap': { 'text-wrap': 'wrap' },
         '.text-nowrap': { 'text-wrap': 'nowrap' },
         '.text-balance': { 'text-wrap': 'balance' },
+
+        '.font-small-caps': { 'font-variant': 'small-caps' },
       })
     }),
   ],

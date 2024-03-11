@@ -4,6 +4,9 @@ import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { Database } from '~/lib/supabase'
 
 export const middleware: NextMiddleware = async (req) => {
+  // Skip server actions
+  if (req.headers.has('next-action')) return NextResponse.next()
+
   const probablyShortCode = req.nextUrl.pathname.split('/')[1]
   const supabase = createMiddlewareClient<Database>({ req, res: new NextResponse() })
   const { error, data: shortUrl } = await supabase
